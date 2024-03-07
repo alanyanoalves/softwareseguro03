@@ -1,17 +1,76 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Pessoa {
+    String nome;
+    int idade;
+}
+
+class Musica {
+    String titulo;
+    int duracao;
+    String compositor;
+
+    void tocarMusica() {
+        System.out.println("Tocando música: " + titulo);
+    }
+}
+
+class Album {
+    String genero;
+    int ano;
+    String nome;
+    String artista;
+    ArrayList<Musica> musicas = new ArrayList<>();
+
+    void mostraTodosOsDados() {
+        System.out.println("Gênero: " + genero);
+        System.out.println("Ano: " + ano);
+        System.out.println("Nome: " + nome);
+        System.out.println("Artista: " + artista);
+        System.out.println("Músicas:");
+        for (Musica musica : musicas) {
+            System.out.println("- " + musica.titulo);
+        }
+    }
+}
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner scanner = new Scanner(System.in);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        Pessoa pessoa = new Pessoa();
+        System.out.println("Digite o nome da pessoa:");
+        pessoa.nome = scanner.nextLine();
+        System.out.println("Digite a idade da pessoa:");
+        pessoa.idade = scanner.nextInt();
+        scanner.nextLine();
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        Musica musica = new Musica();
+        System.out.println("Digite o título da música:");
+        musica.titulo = scanner.nextLine();
+        System.out.println("Digite a duração da música em segundos:");
+        musica.duracao = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Digite o compositor da música:");
+        musica.compositor = scanner.nextLine();
+
+        Album album = new Album();
+        System.out.println("Digite o gênero do álbum:");
+        album.genero = scanner.nextLine();
+        System.out.println("Digite o ano do álbum:");
+        album.ano = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Digite o nome do álbum:");
+        album.nome = scanner.nextLine();
+        System.out.println("Digite o nome do artista:");
+        album.artista = scanner.nextLine();
+
+        album.musicas.add(musica);
+
+        System.out.println("\nDados do álbum:");
+        album.mostraTodosOsDados();
+
+        scanner.close();
     }
 }

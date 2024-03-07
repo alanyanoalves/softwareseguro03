@@ -8,7 +8,7 @@ class Pessoa {
 
 class Musica {
     String titulo;
-    int duracao;
+    int duracao; 
     String compositor;
 
     void tocarMusica() {
